@@ -1,0 +1,29 @@
+{
+    "name": "Download Renamer",
+    "description": "Categorize or rename downloads from certain domains",
+    "homepage_url": "https://github.com/mdejean/download-renamer",
+    "manifest_version": 2,
+    "version": "1.0",
+
+    "applications": {
+        "gecko": {
+            "strict_min_version": "55.0a1",
+            "id": "download-renamer@mdejean.github.com",
+            "update_url": "https://mdejean.github.io/download-renamer/update.json"
+        }
+    },
+
+    "permissions": [
+        "downloads",
+        "storage"
+    ],
+
+    "background": {
+        "scripts": ["background.js"]
+    },
+
+    "options_ui": {
+        "page": "prefs.html",
+        "browser_style": true
+    }
+}
