@@ -10,7 +10,7 @@ browser.storage.onChanged.addListener(get_prefs);
 
 function match(url_string, path) {
     let url = new URL(url_string);
-    return prefs.filters.find(f => url.hostname.match(f.pattern));
+    return prefs.filters.find(f => (url.hostname.search(f.regexp) != -1));
 }
 
 function rewrite(filter, url_string, path) {
@@ -19,7 +19,7 @@ function rewrite(filter, url_string, path) {
     console.log(filename);
     let url = new URL(url_string);
     if (filter.folder) {
-        return './' + filter.folder + '/' + filename;
+        return filter.folder + directory_separator + filename;
     }
     return filename;
 }
